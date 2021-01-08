@@ -19,7 +19,7 @@ public class CommentService {
 		RestTemplate restTemplate = new RestTemplate();
 		Comment comments[] = restTemplate.getForObject(resource, Comment[].class);
 		JSONObject json_obj = new JSONObject();
-		return json_obj.put("data", List.of(comments).stream().map(comment -> comment.toString())
-				.collect(Collectors.toList())).toString();
+		json_obj.put("data", List.of(comments).stream().map(comment -> comment.toString()).collect(Collectors.toList()));
+		return json_obj.toString();
 	}
 }
